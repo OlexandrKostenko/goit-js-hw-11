@@ -15,7 +15,7 @@ form.addEventListener('submit', onSearch);
 window.addEventListener('scroll', throttle(() => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
   console.log(scrollHeight, clientHeight, scrollTop);
-  if (scrollHeight - clientHeight === scrollTop) {
+  if (scrollHeight - clientHeight === Number.parseInt(scrollTop)) {
     onLoadMore();
   }
 }), 500);
