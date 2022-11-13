@@ -1,7 +1,8 @@
-import PixabayAPIService from "./pixabayService";
+import PixabayAPIService from "./js/pixabayService";
 import Notiflix from 'notiflix';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+import throttle from "lodash.throttle";
 
 const form = document.querySelector('.search-form');
 const btnLoadMore = document.querySelector('.btn-load-more');
@@ -11,12 +12,13 @@ let markup = '';
 
 form.addEventListener('submit', onSearch);
 /* btnLoadMore.addEventListener('click', onLoadMore); */
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', throttle(() => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  console.log(scrollHeight, clientHeight, scrollTop);
   if (scrollHeight - clientHeight === scrollTop) {
     onLoadMore();
   }
-});
+}), 500);
 
 
 const pixabayAPIService = new PixabayAPIService();
