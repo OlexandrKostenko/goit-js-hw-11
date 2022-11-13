@@ -26,3 +26,24 @@
   background-size: cover;
   background-position: center;
 }
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 360px;
+}
+
+.info-item {
+  display: flex;
+  flex-wrap: wrap;
+
+}
